@@ -1,4 +1,4 @@
-// src/utils/event.handler.ts
+
 
 import { Evento } from "../clas/evento.clas1";
 
