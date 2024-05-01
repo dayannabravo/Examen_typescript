@@ -1,10 +1,8 @@
-// src/utils/exploration.utils.ts
 
-type Direction = 'North' | 'South' | 'East' | 'West';
+type Direction = 'Norte' | 'Sur' | 'Este' | 'Oeste';
 
-function navigate(direction: Direction): void {
-  console.log(`Navigating ${direction}...`);
-  // Implementar lógica de navegación aquí
+function navegar(direction: Direction): void {
+
 }
 
-export { navigate };
+export { navegar };

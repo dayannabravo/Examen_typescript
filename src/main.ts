@@ -1,5 +1,3 @@
-// src/main.ts
-
 import  Nave_Espacial  from "./vistas/nave.espacial";
 import { Planeta, TipoDeRecurso } from "./model/planeta";
 import { Evento, TipoDeEvento } from "./model/evento";
@@ -9,34 +7,31 @@ import { manejoEvento } from "./controller/management.eventos";
 import { entradaUsuario } from "./controller/user.input";
 import { simulacionTiempo } from "./controller/simulacion";
 
-// Crear una instancia de la nave espacial
 const mySpaceship: Nave_Espacial = {
   salud: 100,
-  capacidadDeCarga: 200,
-  velocidad: 10,
+  capacidadDeCarga: 300,
+  velocidad: 20,
 };
 
-// Creacion de planetas
-const tierra = new Planeta("Tierra", TipoDeRecurso.Agua, 2);
-const marte = new Planeta("Marte", TipoDeRecurso.Oxigeno, 5);
-const luna = new Planeta("Luna", TipoDeRecurso.Minerales, 1);
 
-// Explorar algunos planetas
+const tierra = new Planeta("Tierra", TipoDeRecurso.Agua, 1);
+const marte = new Planeta("Marte", TipoDeRecurso.Oxigeno, 3);
+const luna = new Planeta("Luna", TipoDeRecurso.Minerales, 5);
+
+
 tierra.explore();
 marte.explore();
 luna.explore();
 
-// Crear algunos eventos
-const asteroide = new Evento(TipoDeEvento.Asteroide, 8);
-const aliens = new Evento(TipoDeEvento.Aliens, 6);
-const agujeroNegro = new Evento(TipoDeEvento.AgujeroNegro, 3);
 
-// Manejar eventos
+const asteroide = new Evento(TipoDeEvento.Asteroide, 9);
+const aliens = new Evento(TipoDeEvento.Aliens, 10);
+const agujeroNegro = new Evento(TipoDeEvento.AgujeroNegro, 2);
+
 manejoEvento(asteroide);
 manejoEvento(aliens);
 manejoEvento(agujeroNegro);
 
-// Navegar en diferentes direcciones
 navegar('Norte');
 navegar('Este');
 navegar('Sur');
@@ -45,13 +40,13 @@ navegar('Oeste');
 simulacionTiempo(5);
 
 const planetaSeleccionado = entradaUsuario([tierra, marte, luna]);
-console.log(`Ha seleccionado viajar a ${planetaSeleccionado.nombre}`);
+console.log(`Se dirige hacia ${planetaSeleccionado.nombre}`);
 
 const recursoColeccionado = new ColeccionRecursos<string>();
 
 const recursosDisponibles = [
-  { recurso: 'Agua', maxVeces: 3 },
-  { recurso: 'Oxigeno', maxVeces: 4 },
+  { recurso: 'Agua', maxVeces: 4 },
+  { recurso: 'Oxigeno', maxVeces: 6 },
   { recurso: 'Minerales', maxVeces: 2 }
 ];
 
@@ -61,6 +56,6 @@ for (const recursoInfo of recursosDisponibles) {
     recursoColeccionado.add(recursoInfo.recurso);
   }
 }
-console.log("Recursos coleccionados:", recursoColeccionado.getAll());
+console.log("Recursos adquiridos:", recursoColeccionado.getAll());
 
 

@@ -7,13 +7,13 @@ function simularViaje(tiempo: number, distancia: number, eventos: Evento[]): voi
   eventos.forEach(evento => {
     switch (evento.tipo) {
       case TipoDeEvento.Asteroide:
-        console.log(`Asteroide impactó la nave! Dañado: ${evento.peligroso}`);
+        console.log(`Asteroide impactó la nave! Dañado: ${evento.peligro}`);
         break;
       case TipoDeEvento.Aliens:
-        console.log(`¡Invasión alien! Nivel de peligro: ${evento.peligroso}`);
+        console.log(`¡Invasión alien! Nivel de peligro: ${evento.peligro}`);
         break;
       case TipoDeEvento.AgujeroNegro:
-        console.log(`¡Agujero negro próximo detectado! Nivel de peligro: ${evento.peligroso}`);
+        console.log(`¡Agujero negro próximo detectado! Nivel de peligro: ${evento.peligro}`);
         break;
       default:
         console.log(`Evento de origen desconocido`);
